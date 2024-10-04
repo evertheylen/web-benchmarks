@@ -4,7 +4,7 @@ import matplotlib.patches as mpatches
 from pathlib import Path
 import seaborn as sns
 
-suffix = '_nopg'
+suffix = ''
 root_results_dir = Path(__file__).parent / ('results' + suffix)
 
 
@@ -121,4 +121,4 @@ def make_chart(results_dir, filename):
 for directory in root_results_dir.iterdir():
     print('making chart for', directory)
     if directory.is_dir():
-        make_chart(directory, f'charts/combined_{directory.name}{suffix}.png')
+        make_chart(directory, f'charts/combined_{directory.name}{suffix}.svg')

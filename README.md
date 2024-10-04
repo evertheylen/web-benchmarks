@@ -1,3 +1,9 @@
+
+This is the code to support the benchmarks at https://evertheylen.eu/p/node-vs-bun/
+
+---
+
+
 There are many benchmarks comparing different languages and platforms performance to each other, but not all of them are doing this right. It's easy to find benchmarks comparing Golang working on all cores with node.js started in a single process. Or utilizing DB connection pools in one language/framework and not doing it in another.
 
 The goal of this project is to write simple and fare(-ish) benchmarks for a smaller set of languages I understand how to use efficiently and demonstrate that the difference in performance may not be that dramatic (how it is sometimes shown on the internet). No fine tuning is done to run each language/server at a maximum possible speed, rather they all run at default settings and use easily available features of their platforms.
