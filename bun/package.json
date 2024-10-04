@@ -1,0 +1,14 @@
+{
+  "name": "web-benchmarks-bun",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Evert Heylen",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}

@@ -1,2 +1,4 @@
 env
+results/
+charts/
 __pycache__

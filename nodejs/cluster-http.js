@@ -2,7 +2,7 @@ const cluster = require('cluster');
 const http = require('http');
 const common = require('./common');
 
-if (cluster.isMaster) {
+if (cluster.isMaster && common.cpus > 1) {
     console.log(`Master ${process.pid} is running`);
 
     for (let i = 0; i < common.cpus; i++) {

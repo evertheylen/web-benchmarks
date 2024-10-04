@@ -1,9 +1,9 @@
-const os = require('os');
-const {Pool} = require('pg');
+const { Pool } = require("pg");
 
-let cpus = os.cpus().length;
 if (process.env.SERVER_THREADS !== undefined) {
 	cpus = parseInt(process.env.SERVER_THREADS);
+} else {
+	throw new Error('no SERVER_THREADS env var')
 }
 console.log(`Using ${cpus} threads`);
 // 240 = lcm(1 2 4 8 12 16 20)

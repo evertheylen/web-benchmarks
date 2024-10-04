@@ -1,6 +1,7 @@
 services:
   postgres:
     image: "postgres:${PG_VERSION}-alpine"
+    command: -c 'max_connections=1000'
     container_name: web-benchmarks-postgres
     restart: always
     volumes:
