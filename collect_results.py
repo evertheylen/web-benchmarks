@@ -4,7 +4,8 @@ import matplotlib.patches as mpatches
 from pathlib import Path
 import seaborn as sns
 
-root_results_dir = Path(__file__).parent / 'results'
+suffix = '_nopg'
+root_results_dir = Path(__file__).parent / ('results' + suffix)
 
 
 
@@ -92,10 +93,17 @@ def make_chart(results_dir, filename):
     #ax2.set_xlabel('Directory')
     ax2.set_ylim(0, max(rps_data.values()) * 1.1)
 
+    def format_height(h):
+        thousands = h / 1000
+        if thousands >= 100:
+            return f'{thousands:.0f}k'
+        else:
+            return f'{thousands:.1f}k'
+
     for patch, color in zip(barplot.patches, colors):
         patch.set_facecolor(color)
         height = patch.get_height()
-        ax2.text(patch.get_x() + patch.get_width() / 2, height+100, f'{height/1000:.1f}k', ha='center', va='bottom')
+        ax2.text(patch.get_x() + patch.get_width() / 2, height+100, format_height(height), ha='center', va='bottom')
 
 
     # Legend
@@ -113,4 +121,4 @@ def make_chart(results_dir, filename):
 for directory in root_results_dir.iterdir():
     print('making chart for', directory)
     if directory.is_dir():
-        make_chart(directory, f'charts/combined_{directory.name}.svg')
+        make_chart(directory, f'charts/combined_{directory.name}{suffix}.png')

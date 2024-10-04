@@ -71,9 +71,9 @@ servers = [
 
 
 def main():
-    results = root / 'results'
+    results = root / 'results_nopg'
 
-    for connections in [1600, 2000]: #[50, 100, 200, 400, 600, 800]:
+    for connections in [50, 100, 200, 400, 600, 800]:
         for server in servers:
             print(f"\n------------------- {connections} - {server.name} -------------------")
             timestamp = datetime.now().isoformat()
